@@ -32,7 +32,6 @@ public class CoefficientControllerTest
 
         _memoryCache = serviceProvider.GetService<IMemoryCache>();
 
-
         _logger = factory.CreateLogger<CoefficientController>();
         _service = new CoefficientRepository();
         _valuationRepository = new ValuationRepository();
