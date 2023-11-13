@@ -68,4 +68,25 @@ public class VesselControllerTest
 
         Assert.Equal(1, vessels.Count);
     }
+
+    [Fact]
+    public void Put()
+    {
+        Vessel vessel = new Vessel()
+        {
+            IMO = "IMO1234567",
+            VesselType = 0,
+            YearOfBuild = 2022,
+            Size = 27000
+        };
+
+        _controller.Put(vessel);
+        var result = _controller.Get();
+
+        var list = result.Result as OkObjectResult;
+
+        var vessels = list.Value as List<Vessel>;
+
+        Assert.Equal(1, vessels.Count);
+    }
 }

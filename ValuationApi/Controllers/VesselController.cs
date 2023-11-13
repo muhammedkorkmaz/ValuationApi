@@ -70,6 +70,36 @@ public class VesselController : ControllerBase
     }
 
     /// <summary>
+    /// Update vessel
+    /// </summary>
+    /// <param name="vessel"></param>
+    /// <returns></returns>
+    [HttpPut]
+    [ActionName("UpdateVessel")]
+    public ActionResult Put(Vessel vessel)
+    {
+        try
+        {
+            var valdationResult = _vesselValidator.Validate(vessel);
+
+            if (!valdationResult.IsValid)
+            {
+                return BadRequest(valdationResult.Errors);
+            }
+
+            _vesselRepository.Update(vessel);
+
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            const string msg = "Error while updating the vessel.";
+            _logger.LogError(ex, msg);
+            return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+        }
+    }
+
+    /// <summary>
     /// Gets all vessels from db
     /// </summary>
     /// <returns></returns>

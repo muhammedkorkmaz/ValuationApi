@@ -71,6 +71,25 @@ namespace ValuationApi.Repository
                 throw;
             }
         }
+
+        /// <summary>
+        /// Update vessel
+        /// </summary>
+        public void Update(Vessel vessel)
+        {
+            try
+            {
+                using var context = new CustomDBContext();
+
+                context.Vessels.Update(vessel);
+
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
 
