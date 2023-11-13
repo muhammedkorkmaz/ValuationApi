@@ -14,8 +14,7 @@ Techs:
 Developed for two kind of roles, admin and client.
 
 For Admin: There are operations for admin to add or update and get Vessels and Coefficients.
-<img width="1437" alt="AdminOperations" src="https://github.com/muhammedkorkmaz/ValuationApi/assets/44212848/2c6fc326-9cf4-4eff-934f-a6beab975a44">
-
+<img width="1437" alt="AdminOperations" src="https://github.com/muhammedkorkmaz/ValuationApi/assets/44212848/9fd4d239-7b2f-4805-a638-02df2427ab75">
 
 - To valuate the vessel there is post method that take string array. Can be used for single or multiple entry. Valuate the vessel acording to given coefiicients and keep on memory cache 10 minutes for future requests.
 - To get all active valuations, get method will be used as shown below.
