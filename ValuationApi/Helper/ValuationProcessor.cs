@@ -1,5 +1,4 @@
-﻿using System;
-using ValuationApi.Models;
+﻿using ValuationApi.Models;
 
 namespace ValuationApi.Helper
 {

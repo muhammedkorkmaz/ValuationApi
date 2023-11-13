@@ -1,5 +1,4 @@
-﻿using System;
-using ValuationApi.Models;
+﻿using ValuationApi.Models;
 
 namespace ValuationApi.Helper
 {
@@ -8,59 +7,6 @@ namespace ValuationApi.Helper
     /// </summary>
     public static class Validations
     {
-        /// <summary>
-        /// Validate vessel properties values
-        /// </summary>
-        /// <param name="vessel"></param>
-        /// <returns></returns>
-        public static string ValidateVessel(Vessel vessel)
-        {
-            try
-            {
-                int sizeRangeStart = 0;
-                int sizeRangeEnd = 0;
-
-                switch (vessel.VesselType)
-                {
-                    case VesselType.DryBulk:
-                        sizeRangeStart = 25000;
-                        sizeRangeEnd = 125000;
-                        break;
-
-                    case VesselType.OilTanker:
-                        sizeRangeStart = 35000;
-                        sizeRangeEnd = 75000;
-                        break;
-
-                    case VesselType.ContainerShip:
-                        if (vessel.YearOfBuild < 2018)
-                        {
-                            sizeRangeStart = 20000;
-                            sizeRangeEnd = 45000;
-                        }
-                        else
-                        {
-                            sizeRangeStart = 20000;
-                            sizeRangeEnd = 55000;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-
-                if (vessel.Size < sizeRangeStart || vessel.Size > sizeRangeEnd)
-                {
-                    return "Invalid size!";
-                }
-
-                return string.Empty;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         /// <summary>
         /// Check if any coeficient changed
         /// </summary>
