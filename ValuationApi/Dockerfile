@@ -12,8 +12,6 @@
 # Create a stage for building the application.
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build
 
-ENV ASPNETCORE_ENVIRONMENT=Development
-
 COPY . /source
 
 WORKDIR /source
